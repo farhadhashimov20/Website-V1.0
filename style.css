@@ -15,8 +15,60 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 16px;
+  position: relative;
+  overflow: hidden;
 }
+
+.circleS {
+  position: absolute;
+  width: 300px;
+  height:300px;
+  opacity: 0.5;
+  mix-blend-mode: screen; /* makes overlaps glow */
+}
+
+.circleB {
+  position: absolute;
+  width: 350px;
+  height:350px;
+  opacity: 0.5;
+  mix-blend-mode: screen; /* makes overlaps glow */
+}
+
+/* Right circle */
+.circle-right {
+  top: 27%;
+  animation: moveRightToCenter 2.5s ease forwards;
+}
+
+@keyframes moveRightToCenter {
+  0% {
+    transform: translateX(150px); /* start off to the right */
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(45px); /* move to center */
+    opacity: 1;
+  }
+}
+
+/* Left circle */
+.circle-left {
+  top: 43%;
+  animation: moveLeftToCenter 2.5s ease forwards;
+}
+
+@keyframes moveLeftToCenter {
+  0% {
+    transform: translateX(-150px); /* start off to the left */
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(-45px); /* move to center */
+    opacity: 1;
+  }
+}
+
 
 /* Footer Layout */
 .footer {

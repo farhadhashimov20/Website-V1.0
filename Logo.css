@@ -1,0 +1,48 @@
+/* Content */
+.content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.circle {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  opacity: 0;
+}
+
+/* Right circle */
+.circle-right {
+  animation: moveRightToCenter 2.5s ease forwards;
+}
+
+@keyframes moveRightToCenter {
+  0% {
+    transform: translateX(150px, -40px); /* start off to the right */
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(30px, -40px); /* move to center */
+    opacity: 1;
+  }
+}
+
+/* Left circle */
+.circle-left {
+  animation: moveLeftToCenter 2.5s ease forwards;
+}
+
+@keyframes moveLeftToCenter {
+  0% {
+    transform: translateX(-150px, 40px); /* start off to the left */
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(-30px, 40px); /* move to center */
+    opacity: 1;
+  }
+}
