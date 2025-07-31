@@ -1,0 +1,54 @@
+/* Global */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #04001e;
+  color: white;
+}
+
+/* Content */
+.content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+}
+
+/* Footer Layout */
+.footer {
+  background-color: #04001e;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 40px;
+  font-size: 14px;
+  position: relative;
+}
+
+/* Centered LinkedIn block */
+.footer-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+/* Links */
+.footer a {
+  color: inherit; /* stays white */
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+/* Hover effect */
+.footer a:hover {
+/*  font-size: 1.1em; /* slightly bigger */
+  color: #7ed957; /* stays white */
+  text-shadow: 0 0 6px rgba(255,255,255,0.7);
+}
