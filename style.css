@@ -7,9 +7,10 @@ body {
   height: 100vh;
   background-color: #04001e;
   color: white;
+  overflow: hidden;
 }
 
-/* Content */
+/* Content wrapper */
 .content {
   flex: 1;
   display: flex;
@@ -19,106 +20,133 @@ body {
   overflow: hidden;
 }
 
-/* Text block */
-.intro-text {
-  position: relative;
-  z-index: 3; /* ensures it's above the circles */
-  color: white;
-  text-align: left;
-  margin-left: 50px;
-}
-
-.intro-text h1 {
-  font-size: 2rem;   /* big */
-  margin: 0;
-}
-
-.intro-text h2 {
-  font-size: 1.5rem; /* medium */
-  margin: 10px 0;
-  font-weight: 400;
-}
-
-.intro-text p {
-  font-size: 1.0rem; /* small */
-  margin-top: 10px;
-  line-height: 1.5;
-}
-
+/* Circles */
 .circleS {
   position: absolute;
-  width: 300px;
-  height:300px;
-  opacity: 0.5;
-  mix-blend-mode: screen; /* makes overlaps glow */
+  width: 280px;
+  height: 280px;
+  top: 55%;       /* lower */
+  left: 35%;      /* left */
+  opacity: 0;
+  mix-blend-mode: screen;
+  animation: moveLeftToCenter 2.5s ease forwards;
 }
 
 .circleB {
   position: absolute;
-  width: 350px;
-  height:350px;
-  opacity: 0.5;
-  mix-blend-mode: screen; /* makes overlaps glow */
-}
-
-
-/* Right circle */
-.circle-right {
-  top: 27%;
+  width: 340px;
+  height: 340px;
+  top: 25%;       /* higher */
+  left: 50%;      /* right */
+  opacity: 0;
+  mix-blend-mode: screen;
   animation: moveRightToCenter 2.5s ease forwards;
 }
 
-
 @keyframes moveRightToCenter {
-  0% {
-    transform: translateX(150px); /* start off to the right */
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(45px); /* move to center */
-    opacity: 1;
-  }
-}
-
-.text_move_01 {
-  position: absolute;
-  top: -20%;   /* was 43%, move up */
-  animation: moveRightxToCenter 4.0s ease forwards;
-  animation-delay: 0.5s;
-  animation-fill-mode: both;
-}
-
-@keyframes moveRightxToCenter {
-  0% {
-    transform: translateX(220px); /* start off to the right */
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(150px); /* move to center */
-    opacity: 1;
-  }
-}
-
-/* Left circle */
-.circle-left {
-  top: 43%;
-  animation: moveLeftToCenter 2.5s ease forwards;
+  0% { transform: translateX(150px); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
 }
 
 @keyframes moveLeftToCenter {
-  0% {
-    transform: translateX(-150px); /* start off to the left */
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(-45px); /* move to center */
-    opacity: 1;
-  }
+  0% { transform: translateX(-150px); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
 }
 
+/* Center vertical line with dots */
+.center-line {
+  position: absolute;
+  left: 50%;
+  top: 35%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 2;
+  opacity: 0;
+  animation: fadeInLine 2s ease forwards;
+  animation-delay: 1.2s;
+}
 
+.center-line .line {
+  width: 2px;
+  height: 140px;
+  background: white;
+}
 
+.center-line .dot {
+  width: 6px;
+  height: 6px;
+  background: white;
+  border-radius: 50%;
+  margin: 8px 0;
+}
 
+@keyframes fadeInLine {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Text block */
+.intro-text {
+  position: relative;
+  z-index: 3;
+  color: white;
+}
+
+/* Name (big, right circle) */
+.intro-text h1 {
+  position: absolute;
+  top: 30%;
+  left: 62%;
+  font-size: 2.5rem;
+  margin: 0;
+  opacity: 0;
+  animation: slideInRight 2s ease forwards;
+  animation-delay: 1.5s;
+}
+
+/* Subtitle (medium, left circle) */
+.intro-text h2 {
+  position: absolute;
+  top: 52%;
+  left: 18%;
+  font-size: 1.6rem;
+  font-weight: 400;
+  margin: 0;
+  opacity: 0;
+  animation: slideInLeft 2s ease forwards;
+  animation-delay: 1.8s;
+}
+
+/* Skills (small, under divider) */
+.intro-text p {
+  position: absolute;
+  top: 70%;
+  left: 55%;
+  font-size: 1.1rem;
+  line-height: 1.4;
+  margin: 0;
+  opacity: 0;
+  animation: fadeInUp 2s ease forwards;
+  animation-delay: 2.1s;
+}
+
+/* Animations for text */
+@keyframes slideInRight {
+  0% { transform: translateX(200px); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideInLeft {
+  0% { transform: translateX(-200px); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  0% { transform: translateY(40px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
 
 /* Footer Layout */
 .footer {
@@ -132,25 +160,56 @@ body {
   position: relative;
 }
 
-/* Centered LinkedIn block */
-.footer-center {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  text-align: center;
-}
-
-/* Links */
 .footer a {
-  color: inherit; /* stays white */
+  color: inherit;
   text-decoration: none;
   font-weight: 500;
   transition: all 0.3s ease;
 }
 
-/* Hover effect */
 .footer a:hover {
-/*  font-size: 1.1em; /* slightly bigger */
-  color: #7ed957; /* stays white */
+  color: #7ed957;
   text-shadow: 0 0 6px rgba(255,255,255,0.7);
+}
+
+.footer-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;               /* align text + logo inline */
+  align-items: center;         /* vertical alignment */
+  gap: 6px;                    /* spacing between text and logo */
+}
+
+.footer-top {
+  background-color: #04001e;
+  padding: 6px 0;
+  display: flex;
+  justify-content: center;   /* center logo */
+  align-items: center;
+}
+
+.footer-top img {
+  height: 20px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.footer-top img:hover {
+  transform: scale(1.2);
+  filter: drop-shadow(0 0 6px #7ed957);
+}
+
+.footer-center small {
+  margin: 0;
+}
+
+.linkedin-inline img {
+  height: 18px;                /* slightly taller to match text */
+  display: inline-block;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.linkedin-inline:hover img {
+  transform: scale(1.2);
+  filter: drop-shadow(0 0 6px #7ed957);
 }
