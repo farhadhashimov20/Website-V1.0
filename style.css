@@ -19,6 +19,32 @@ body {
   overflow: hidden;
 }
 
+/* Text block */
+.intro-text {
+  position: relative;
+  z-index: 3; /* ensures it's above the circles */
+  color: white;
+  text-align: left;
+  margin-left: 50px;
+}
+
+.intro-text h1 {
+  font-size: 2rem;   /* big */
+  margin: 0;
+}
+
+.intro-text h2 {
+  font-size: 1.5rem; /* medium */
+  margin: 10px 0;
+  font-weight: 400;
+}
+
+.intro-text p {
+  font-size: 1.0rem; /* small */
+  margin-top: 10px;
+  line-height: 1.5;
+}
+
 .circleS {
   position: absolute;
   width: 300px;
@@ -35,11 +61,13 @@ body {
   mix-blend-mode: screen; /* makes overlaps glow */
 }
 
+
 /* Right circle */
 .circle-right {
   top: 27%;
   animation: moveRightToCenter 2.5s ease forwards;
 }
+
 
 @keyframes moveRightToCenter {
   0% {
@@ -48,6 +76,25 @@ body {
   }
   100% {
     transform: translateX(45px); /* move to center */
+    opacity: 1;
+  }
+}
+
+.text_move_01 {
+  position: absolute;
+  top: -20%;   /* was 43%, move up */
+  animation: moveRightxToCenter 4.0s ease forwards;
+  animation-delay: 0.5s;
+  animation-fill-mode: both;
+}
+
+@keyframes moveRightxToCenter {
+  0% {
+    transform: translateX(220px); /* start off to the right */
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(150px); /* move to center */
     opacity: 1;
   }
 }
@@ -68,6 +115,9 @@ body {
     opacity: 1;
   }
 }
+
+
+
 
 
 /* Footer Layout */
