@@ -23,23 +23,23 @@ body {
 /* Circles */
 .circleS {
   position: absolute;
-  width: 280px;
-  height: 280px;
-  top: 55%;       /* lower */
-  left: 35%;      /* left */
+  width: 330px;
+  height: 330px;
+  top: 42%;       /* lower */
+  left: 38%;      /* left */
   opacity: 0;
-  mix-blend-mode: screen;
+  mix-blend-mode: lighten;
   animation: moveLeftToCenter 2.5s ease forwards;
 }
 
 .circleB {
   position: absolute;
-  width: 340px;
-  height: 340px;
-  top: 25%;       /* higher */
-  left: 50%;      /* right */
+  width: 380px;
+  height: 380px;
+  top: 22%;       /* higher */
+  left: 44.5%;      /* right */
   opacity: 0;
-  mix-blend-mode: screen;
+  mix-blend-mode: lighten;
   animation: moveRightToCenter 2.5s ease forwards;
 }
 
@@ -69,14 +69,14 @@ body {
 }
 
 .center-line .line {
-  width: 2px;
-  height: 140px;
+  width: 1px;
+  height: 240px;
   background: white;
 }
 
 .center-line .dot {
-  width: 6px;
-  height: 6px;
+  width: 3px;
+  height: 3px;
   background: white;
   border-radius: 50%;
   margin: 8px 0;
@@ -96,10 +96,11 @@ body {
 
 /* Name (big, right circle) */
 .intro-text h1 {
-  position: absolute;
-  top: 30%;
-  left: 62%;
-  font-size: 2.5rem;
+  position: relative;
+  top: -80%;
+  left: 80%;
+  font-size: 3.5rem;
+  font-weight: 350;
   margin: 0;
   opacity: 0;
   animation: slideInRight 2s ease forwards;
@@ -108,22 +109,23 @@ body {
 
 /* Subtitle (medium, left circle) */
 .intro-text h2 {
-  position: absolute;
+  position: relative;
   top: 52%;
-  left: 18%;
-  font-size: 1.6rem;
-  font-weight: 400;
+  right: 80%;
+  font-size: 2.0rem;
+  font-weight: 200;
   margin: 0;
   opacity: 0;
   animation: slideInLeft 2s ease forwards;
   animation-delay: 1.8s;
+  text-align: right;
 }
 
 /* Skills (small, under divider) */
 .intro-text p {
-  position: absolute;
-  top: 70%;
-  left: 55%;
+  position: relative;
+  top: 20%;
+  left: 65%;
   font-size: 1.1rem;
   line-height: 1.4;
   margin: 0;
@@ -144,8 +146,8 @@ body {
 }
 
 @keyframes fadeInUp {
-  0% { transform: translateY(40px); opacity: 0; }
-  100% { transform: translateY(0); opacity: 1; }
+  0% { transform: translateY(50px); opacity: 0; }
+  100% { transform: translateY(-10px); opacity: 1; }
 }
 
 /* Footer Layout */
