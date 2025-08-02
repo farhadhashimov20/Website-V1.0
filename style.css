@@ -37,7 +37,7 @@ body {
   width: 380px;
   height: 380px;
   top: 22%;       /* higher */
-  left: 44.5%;      /* right */
+  left: 44.5%;    /* right */
   opacity: 0;
   mix-blend-mode: lighten;
   animation: moveRightToCenter 2.5s ease forwards;
@@ -92,6 +92,20 @@ body {
   position: relative;
   z-index: 3;
   color: white;
+}
+
+/* Prevent selection and copy for intro-text elements */
+.intro-text h1,
+.intro-text h2,
+.intro-text p ,
+.circleS ,
+.circleB ,
+.footer {
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none;    /* Firefox */
+  -ms-user-select: none;     /* IE10+/Edge */
+  user-select: none;         /* Standard */
+  pointer-events: none;      /* Prevent mouse-based copy */
 }
 
 /* Name (big, right circle) */
