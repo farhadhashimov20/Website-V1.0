@@ -10,6 +10,52 @@ body {
   overflow: hidden;
 }
 
+/* Header */
+.header {
+  background-color: #04001e;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 40px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Logo */
+.header-left .logo img {
+  height: 40px;
+  cursor: pointer;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.header-left .logo img:hover {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 6px #7ed957);
+}
+
+/* Navigation */
+.header-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 24px;
+}
+
+.header-nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.header-nav ul li a:hover {
+  color: #7ed957;
+  text-shadow: 0 0 6px rgba(255,255,255,0.7);
+}
+
 /* Content wrapper */
 .content {
   flex: 1;
