@@ -56,6 +56,15 @@ body {
   text-shadow: 0 0 6px rgba(255,255,255,0.7);
 }
 
+.circle {
+  position: flex;
+  width: 330px;
+  height: 330px;
+  top: 42%;       /* lower */
+  left: 38%;      /* left */
+  opacity: 0;
+}
+
 /* Content wrapper */
 .content {
   flex: 1;
@@ -105,12 +114,12 @@ body {
 
 .project-text h3 {
   margin: 10px 0 5px;
-  font-size: 18px;
+  font-size: 14px;
   color: #04001e; /* deep greenish-blue */
 }
 
 .project-text p {
-  font-size: 14px;
+  font-size: 12px;
   color: #333;
   text-align: center;
 }
@@ -125,6 +134,33 @@ body {
   -ms-user-select: none;     /* IE10+/Edge */
   user-select: none;         /* Standard */
   pointer-events: none;      /* Prevent mouse-based copy */
+}
+
+.footer-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px; /* space between elements */
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.nav-btn {
+  background: #f0f0f0;
+  border: 1px solid #ccc;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.nav-btn:hover {
+  background: #ddd;
+}
+
+.page-number {
+  font-size: 16px;
+  font-weight: bold;
 }
 
 /* Footer Layout */
