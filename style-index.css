@@ -1,0 +1,184 @@
+/* Page-specific styles for index.html — shared header/footer/reset live in common.css */
+
+.content {
+  justify-content: center;
+  padding: clamp(16px, 6vh, 48px) 0;
+}
+
+/* ============================================
+   Hero layout
+   ============================================ */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: clamp(24px, 6vw, 64px);
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 clamp(16px, 5vw, 40px);
+}
+
+.hero-block {
+  display: flex;
+  align-items: center;
+  gap: clamp(14px, 3vw, 32px);
+  min-width: 0; /* allow flex children to shrink below content size */
+}
+
+.hero-block--left {
+  flex-direction: row;
+}
+
+.hero-block--right {
+  flex-direction: row-reverse;
+  text-align: right;
+}
+
+/* ============================================
+   Circles
+   ============================================ */
+.hero-circle {
+  flex-shrink: 0;
+  opacity: 0;
+}
+
+.hero-circle--left {
+  width: clamp(110px, 22vw, 330px);
+  height: clamp(110px, 22vw, 330px);
+  --slide: clamp(40px, 10vw, 150px);
+  animation: moveLeftToCenter 2.5s ease forwards;
+}
+
+.hero-circle--right {
+  width: clamp(120px, 25vw, 380px);
+  height: clamp(120px, 25vw, 380px);
+  --slide: clamp(50px, 12vw, 200px);
+  animation: moveRightToCenter 2.5s ease forwards;
+}
+
+@keyframes moveRightToCenter {
+  0% { transform: translateX(var(--slide, 150px)); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes moveLeftToCenter {
+  0% { transform: translateX(calc(-1 * var(--slide, 150px))); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+
+/* ============================================
+   Center vertical line with dots (divider between the two halves)
+   ============================================ */
+.center-line {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+  opacity: 0;
+  animation: fadeInLine 2s ease forwards;
+  animation-delay: 1.2s;
+}
+
+.center-line .line {
+  width: 1px;
+  height: clamp(120px, 24vh, 240px);
+  background: white;
+}
+
+.center-line .dot {
+  width: 3px;
+  height: 3px;
+  background: white;
+  border-radius: 50%;
+  margin: 8px 0;
+}
+
+@keyframes fadeInLine {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ============================================
+   Text
+   ============================================ */
+.hero-name {
+  font-size: clamp(1.9rem, 6vw, 3.5rem);
+  font-weight: 350;
+  line-height: 1.1;
+  margin: 0;
+  opacity: 0;
+  --slide: clamp(50px, 14vw, 200px);
+  animation: slideInRight 2s ease forwards;
+  animation-delay: 1.5s;
+}
+
+.hero-subtitle {
+  font-size: clamp(1.2rem, 4vw, 2rem);
+  font-weight: 200;
+  line-height: 1.2;
+  margin: 0;
+  opacity: 0;
+  --slide: clamp(50px, 14vw, 200px);
+  animation: slideInLeft 2s ease forwards;
+  animation-delay: 1.8s;
+}
+
+.hero-skills {
+  font-size: clamp(0.9rem, 2.2vw, 1.1rem);
+  line-height: 1.4;
+  margin: clamp(6px, 1.5vw, 10px) 0 0;
+  opacity: 0;
+  animation: fadeInUp 2s ease forwards;
+  animation-delay: 2.1s;
+}
+
+@keyframes slideInRight {
+  0% { transform: translateX(var(--slide, 200px)); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideInLeft {
+  0% { transform: translateX(calc(-1 * var(--slide, 200px))); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  0% { transform: translateY(24px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+/* ============================================
+   Responsive breakpoints
+   ============================================ */
+
+/* Tablet: stack the two halves, turn the divider horizontal */
+@media (max-width: 900px) {
+  .hero {
+    flex-direction: column;
+    gap: clamp(20px, 5vh, 40px);
+  }
+
+  .center-line {
+    flex-direction: row;
+  }
+
+  .center-line .line {
+    width: clamp(90px, 50vw, 220px);
+    height: 1px;
+  }
+
+  .center-line .dot {
+    margin: 0 8px;
+  }
+}
+
+/* Mobile: circle sits above its text, everything centered */
+@media (max-width: 560px) {
+  .hero-block--left,
+  .hero-block--right {
+    flex-direction: column;
+    text-align: center;
+  }
+}

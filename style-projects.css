@@ -1,0 +1,85 @@
+/* Page-specific styles for projects-01.html / projects-02.html — shared header/footer/reset live in common.css */
+
+.content {
+  justify-content: flex-start;
+  padding: clamp(16px, 4vh, 32px) 0;
+}
+
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: clamp(20px, 3vw, 50px);
+  width: 100%;
+  max-width: 1400px;
+  margin: 20px auto;
+  padding: 0 clamp(16px, 4vw, 40px);
+}
+
+.project-card {
+  background-color: #e6f0fa; /* light blue */
+  width: 100%;
+  max-width: 340px;
+  margin: 0 auto;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.project-card:hover {
+  filter: drop-shadow(0 0 6px #7ed957);
+  transform: translateY(-8px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+.project-image img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+}
+
+.project-text {
+  padding: 10px 12px 16px;
+  text-align: center;
+  background-color: #fff;
+}
+
+.project-text h3 {
+  margin: 10px 0 5px;
+  font-size: 14px;
+  color: #04001e; /* deep greenish-blue */
+}
+
+.project-text p {
+  font-size: 12px;
+  color: #333;
+  text-align: center;
+}
+
+.footer-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.nav-btn {
+  background: #f0f0f0;
+  border: 1px solid #ccc;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.nav-btn:hover {
+  background: #ddd;
+}
+
+.page-number {
+  font-size: 16px;
+  font-weight: bold;
+}
