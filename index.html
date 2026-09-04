@@ -14,8 +14,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Farhad Hashimov</title>
+  <link rel="stylesheet" href="common.css">
   <link rel="stylesheet" href="style-index.css">
-  <link rel="icon" type="image/png" href=circle_rigth_gradient.png>
+  <link rel="icon" type="image/png" href="circle_rigth_gradient.png">
 </head>
 <body>
 
@@ -37,25 +38,31 @@
     </header>
 
     <div class="content">
-      <!-- Left circle -->
-      <img src="circle_left_gradient.png" alt="Left Circle" class="circleS circle-left">
+      <div class="hero">
 
-      <!-- Center line with dots -->
-      <div class="center-line">
-        <span class="dot"></span>
-        <div class="line"></div>
-        <span class="dot"></span>
+        <!-- Left half: small circle + subtitle -->
+        <div class="hero-block hero-block--left">
+          <img src="circle_left_gradient.png" alt="" class="hero-circle hero-circle--left no-select">
+          <h2 class="hero-subtitle no-select">Engineer &<br>Content Creator</h2>
+        </div>
+
+        <!-- Divider -->
+        <div class="center-line" aria-hidden="true">
+          <span class="dot"></span>
+          <div class="line"></div>
+          <span class="dot"></span>
+        </div>
+
+        <!-- Right half: big circle + name + skills -->
+        <div class="hero-block hero-block--right">
+          <img src="circle_rigth_gradient.png" alt="" class="hero-circle hero-circle--right no-select">
+          <div>
+            <h1 class="hero-name no-select">Farhad<br>Hashimov</h1>
+            <p class="hero-skills no-select">Automation | PLC<br>Robotics | Digital Tools</p>
+          </div>
+        </div>
+
       </div>
-
-      <!-- Texts -->
-      <div class="intro-text">
-        <h1 class="text_move_01">Farhad<br>Hashimov</h1>
-        <h2 class="text_move_02">Engineer &<br>Content Creator</h2>
-        <p class="text_move_03">Automation | PLC<br>Robotics | Digital Tools</p>
-      </div>
-
-      <!-- Right circle -->
-      <img src="circle_rigth_gradient.png" alt="Rigth Circle" class="circleB circle-right">
     </div>
 
 
